@@ -44,7 +44,7 @@ class Roll20Sides:
     def __init__(self,numofd20):
         i = 0
         while i<numofd20:
-            print(secrets.choice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]))
+            print(secrets.choice(range(0,21)))
             i += 1
 #implimenting a d100
 class Roll100Sides:
@@ -60,4 +60,3 @@ class RollAnySides:
         while i<numofdice:
             print(secrets.choice(range(0,(sides+1))))
             i += 1
-RollAnySides(5,11)
