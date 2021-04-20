@@ -1,20 +1,22 @@
-import discord
-import os
+#import discord
+import sys
 
-msg = "Greetings Fleshy Beings I am Rollybot jr."
-#print ("\n"+msg+"\n")
-client = discord.Client()
+print(sys.executable)
 
-@client.event
-async def on_ready():
-    print('we have logged in as [0.user]'.format(client))
+# msg = "Greetings Fleshy Beings I am Rollybot jr."
+# #print ("\n"+msg+"\n")
+# client = discord.Client()
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+# @client.event
+# async def on_ready():
+#     print('we have logged in as [0.user]'.format(client))
 
-    if message.content.startswith('$hello'):
-        await message.channel.send(msg)
+# @client.event
+# async def on_message(message):
+#     if message.author == client.user:
+#         return
 
-client.run(os.getenv('TOKEN'))
+#     if message.content.startswith('$hello'):
+#         await message.channel.send(msg)
+
+# client.run('ODMzODM4OTUwMzQxNjczMDQy.YH4LCQ.TF-oGmAeHfe2K6d3fsAx4v5LruU')
