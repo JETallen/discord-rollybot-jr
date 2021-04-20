@@ -78,6 +78,7 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
+
     if message.content.startswith('$logout'):
         client.logout()
 
@@ -99,4 +100,4 @@ async def on_message(message):
         # integers[0],m_list_of_integers[1]))
         #await message.channel.send(m_list_of_results)
 
-client.run('ODMzODM4OTUwMzQxNjczMDQy.YH4LCQ.TF-oGmAeHfe2K6d3fsAx4v5LruU')
+client.run('Token')
