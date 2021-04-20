@@ -53,7 +53,7 @@ class Roll100Sides:
         while i<numofd100:
             print(secrets.choice(range(0,101)))
             i += 1
-#implimenting a die
+#implimenting a die I might just use this guy for the full implimentation.
 class RollAnySides:
     def __init__(self,numofdice,sides):
         i = 0
