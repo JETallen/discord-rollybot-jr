@@ -58,11 +58,10 @@ class Roll100Sides:
 class RollAnySides:
     def __init__(self,numofdice,sides):
         i = 0
-        result_list = []
+        self.result_list = []
         while i < numofdice:
-            result_list = result_list.append(secrets.choice(range(1,(sides+1))))
+            self.result_list = self.result_list.append(secrets.choice(range(1,(sides+1))))
             i += 1
-        return result_list
 
 msg = "Greetings fleshy beings. I am Rollybot jr./nType $help for a command list"
 help_msg = "To roll a number of dice of any sides senter $roll _d_. Eg 2d20"
@@ -71,8 +70,8 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print('we have logged in as [0.user]'.format(client))
-    channel = client.get_channel(833840635831648296)
-    await client.channel.send(msg)
+#channel = client.get_channel(833840635831648296)
+    await client.get_channel("833840635831648296").send(msg)
        
 @client.event
 async def on_message(message):
@@ -91,13 +90,12 @@ async def on_message(message):
         m_list = m.split()
         m_map_object = map(int,m_list)
         m_list_of_integers = list(m_map_object)
-        i = 0 
-
-        while i < m_list_of_integers[0]: #first number is the number of dice
-            await message.channel.send(secrets.choice(range(0,(m_list_of_integers[1]+1))))
-            i += 1
-        #await message.channel.send(RollAnySides(m_list_of_
-        # integers[0],m_list_of_integers[1]))
+        # i = 0 
+        die_roll = RollAnySides(m_list_of_integers[0],m_list_of_integers[1])
+        # while i < m_list_of_integers[0]: #first number is the number of dice
+        #     await message.channel.send(secrets.choice(range(0,(m_list_of_integers[1]+1))))
+        #     i += 1
+        await message.channel.send(die_roll.result_list)
         #await message.channel.send(m_list_of_results)
 
-client.run('Token')
+client.run('TOKEN')
