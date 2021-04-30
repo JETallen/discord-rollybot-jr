@@ -5,14 +5,16 @@ import os
 #implimenting a die I might just use this guy for the full implimentation. 
 class RollAnySides:
     def __init__(self,numofdice,sides):
-        i = 0
-        result_list = list()
-        while i < numofdice:
-            roll_result = secrets.choice(range(1,sides+1))
-            result_list = result_list.append(roll_result)
+        self.result_list = []
+        self.roll_result = 0
+        self.i = 0
+        while self.i < numofdice:
+            self.roll_result = secrets.choice(range(1,sides+1))
+            self.result_list.append(self.roll_result)
             #print(secrets.choice(range(1,(sides+1))))
-            i += 1
-
+            self.i += 1
+    def __repr__(self):
+        return str(self.result_list)
 print(RollAnySides(2,20))
 
 # msg = "Greetings fleshy beings. I am Rollybot jr./nType $help for a command list"
