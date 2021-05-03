@@ -43,16 +43,6 @@ async def on_message(message):
         die_roll = RollAnySides(m_list_of_integers[0],m_list_of_integers[1])
         await message.channel.send(die_roll.result_list)
     
-    if message.content.startswith('$roll'):
-        m = message.content.replace('$roll','')
-        m = m.replace('d',' ')
-        m_list = m.split()
-        m_map_object = map(int,m_list)
-        m_list_of_integers = list(m_map_object)
-
-        die_roll = RollAnySides(m_list_of_integers[0],m_list_of_integers[1])
-        await message.channel.send(die_roll.result_list)
-
     if message.content.startswith('$r '):
         m = message.content.replace('$r ','')
         m = m.replace('d',' ')
@@ -63,14 +53,4 @@ async def on_message(message):
         die_roll = RollAnySides(m_list_of_integers[0],m_list_of_integers[1])
         await message.channel.send(die_roll.result_list)
     
-    if message.content.startswith('$r'):
-        m = message.content.replace('$r','')
-        m = m.replace('d',' ')
-        m_list = m.split()
-        m_map_object = map(int,m_list)
-        m_list_of_integers = list(m_map_object)
-
-        die_roll = RollAnySides(m_list_of_integers[0],m_list_of_integers[1])
-        await message.channel.send(die_roll.result_list)
-
 client.run('TOKEN')
