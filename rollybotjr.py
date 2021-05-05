@@ -12,12 +12,13 @@ class RollAnySides:
             self.roll_result = secrets.choice(range(1,sides+1))
             self.result_list.append(self.roll_result)
             self.i += 1
-
+        self.sum_dice = sum(self.result_list)
     def __repr__(self):
-        return str(self.result_list)
+        return str(self.result_list) + " " + str(self.sum_dice)
 
 msg = "Greetings fleshy beings. I am Rollybot jr./nType $help for a command list"
-help_msg = "To roll a number of dice of any sides senter $roll _d_. Eg 2d20"
+help_msg = "To roll a number of dice of any sides senter $roll _d_ or $r _d_. Eg $roll 2d20 or $r 3d6"
+die_fumble = ["Landed on a corner: Rolling again", "Fell off the table gotta roll again", "Cat got a hold of it. Grabbing a new die"]
 client = discord.Client()
 
 @client.event
@@ -39,7 +40,6 @@ async def on_message(message):
         m_list = m.split()
         m_map_object = map(int,m_list)
         m_list_of_integers = list(m_map_object)
-
         die_roll = RollAnySides(m_list_of_integers[0],m_list_of_integers[1])
         await message.channel.send(die_roll.result_list)
     
@@ -49,7 +49,6 @@ async def on_message(message):
         m_list = m.split()
         m_map_object = map(int,m_list)
         m_list_of_integers = list(m_map_object)
-
         die_roll = RollAnySides(m_list_of_integers[0],m_list_of_integers[1])
         await message.channel.send(die_roll.result_list)
     
